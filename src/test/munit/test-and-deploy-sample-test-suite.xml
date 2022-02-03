@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="test-and-deploy-sample-test-suite.xml" />
+	<munit:test name="test-and-deploy-sample-test-suite-test-and-deploy-sampleFlowTest" doc:id="f60ce59d-845e-4076-9109-b2dd49f87c24" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to test-and-deploy-sampleFlow" doc:id="80e5a7b6-2b59-4239-94d2-37ffdd464359" name="test-and-deploy-sampleFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-equals doc:name="Assert equals" doc:id="570d1745-0dfa-42ba-a5c1-ffbbb7b4e003" actual="#[payload]" expected="#['PONG']" message="Unexpected Payload !!!"/>
+		</munit:validation>
+	</munit:test>
+
+</mule>
